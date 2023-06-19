@@ -1,25 +1,13 @@
 <?php
-$name=$_POST['name'];
+$name=$_GET['name'];
 $key='a359a5eaaced4d60a02140512231906';
 $url='http://api.weatherapi.com/v1/current.json?key='.$key.'&q='.$name.'&aqi=no';
 $response=file_get_contents($url);
 $data=json_decode($response,true);
 ?>
 
-<html>
-<head>
-<title>Weather</title>
-</head>
-<body>
-<h1>Weather</h1>
-<form action="action.php" method="post">
-<input type="text" name="name" placeholder="Enter City Name">
-<input type="submit" name="submit" value="submit">
-</form>
-<?php
-if(isset($_POST['submit']))
-{
-?>
+
+
 <table border="1">
 <tr>
 <th>City</th>
@@ -56,7 +44,7 @@ if(isset($_POST['submit']))
 </tr>
 </table>
 <?php
-}
+
 ?>
 </body>
 </html>
